@@ -1,0 +1,43 @@
+<div class="my-background">
+    <div class="button-container">
+        <h2>ROOM: {{ roomId }}</h2>
+        
+        <!-- Show idle images before choices are made -->
+        <div *ngIf="!myChoice && !opponentChoice">
+            <h2>Waiting for your move...</h2>
+            <div class="image-row">
+                <img src="/rockpl.png" alt="Idle Player 1" />
+                <img src="/rockop.png" alt="Idle Player 2" />
+            </div>
+        </div>
+
+        <!-- Show buttons for player to choose a move -->
+        <div *ngIf="!result" class="button-row">
+            <h2>Choose your move:</h2>
+            <button (click)="choose('rock')">
+                <img src="/rockicn.png" alt="Rock" />
+                Rock
+            </button>
+            <button (click)="choose('paper')">
+                <img src="/papericn.png" alt="Paper" />
+                Paper
+            </button>
+            <button (click)="choose('scissors')">
+                <img src="/scissorsicn.png" alt="Scissors" />
+                Scissors
+            </button>
+        </div>
+
+        <!-- Show results after both players have chosen -->
+        <div *ngIf="result">
+            <p>You chose: {{ myChoice }}</p>
+            <p>Opponent chose: {{ opponentChoice }}</p>
+            <div class="image-row">
+                <img *ngIf="myChoice" [src]="'/' + myChoice+'pl' + '.png'" alt="{{ myChoice }}" />
+                <img *ngIf="opponentChoice" [src]="'/' + opponentChoice+'op' + '.png'" alt="{{ opponentChoice }}" />
+            </div>
+            <p>Result: {{ result }}</p>
+            <button (click)="reset()">Play Again</button>
+        </div>
+    </div>
+</div>

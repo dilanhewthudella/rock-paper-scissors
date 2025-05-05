@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+.my-button {
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #682e6d;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: idlePulse 2s infinite; /* Apply idle animation */
+}
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 20px; /* Add space between buttons */
+}
+.my-button:hover {
+    background-color: #0056b3;
+}
+
+@keyframes idlePulse {
+    0% {
+        transform: scale(1); /* Normal size */
+    }
+    50% {
+        transform: scale(1.05); /* Slightly larger */
+    }
+    100% {
+        transform: scale(1); /* Back to normal size */
+    }
+}
+
+/* Define the keyframes for the hover pulse animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Normal size */
+    }
+    50% {
+        transform: scale(1.1); /* Larger size */
+    }
+    100% {
+        transform: scale(1); /* Back to normal size */
+    }
+}
+.my-input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #682e6d;
+    border-radius: 5px;
+    outline: none;
+    width: 100%; /* Adjust width as needed */
+    max-width: 300px; /* Optional: Limit the input width */
+    box-sizing: border-box;
+}
